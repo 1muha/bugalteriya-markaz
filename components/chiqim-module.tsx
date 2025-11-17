@@ -280,7 +280,7 @@ export default function ChiqimModule() {
       ) : (
         <>
           {/* Header Section */}
-          <div className="flex justify-between items-start">
+          <div className="flex justify-between items-start sticky top-0 bg-white z-20 pt-4 pb-2 border-b border-gray-200">
             <div>
               <h1 className="text-2xl font-semibold text-gray-900 mb-2">Chiqimlar boshqaruvi</h1>
               <p className="text-gray-600">Barcha chiqimlar va to'lovlarni boshqaring</p>
@@ -494,7 +494,7 @@ export default function ChiqimModule() {
           </div>
 
           {/* Search and Filter Section */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 sticky top-[70px] bg-white z-20 py-2 border-b border-gray-200">
             <div className="flex items-center gap-2 mb-3">
               <Search className="h-4 w-4 text-gray-400" />
               <h3 className="text-base font-medium">Qidiruv va filtr</h3>
@@ -560,7 +560,7 @@ export default function ChiqimModule() {
             <div className="p-6 border-b border-gray-200">
               <h3 className="text-lg font-medium">Chiqimlar jadvali ({filteredData.length})</h3>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto sticky-container">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200 bg-gray-50">
@@ -848,3 +848,4 @@ export const getChiqimTotals = () => {
   // This is a placeholder; adjust based on your Balans module requirements
   return totals;
 };
+
