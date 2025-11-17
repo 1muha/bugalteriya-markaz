@@ -113,10 +113,10 @@ export default function KirimModule() {
 
   const downloadCSV = () => {
     const headers = [
-      "Korxona nomi",
+      "O'quvchi Ism",
       "INN",
       "Tel raqami",
-      "Ismi",
+      "Familya",
       "Xizmat turi",
       "Filial nomi",
       "Xodim",
@@ -187,14 +187,13 @@ export default function KirimModule() {
           telRaqami: newEntry.telRaqami || "",
           ismi: newEntry.ismi || "",
           xizmatTuri: newEntry.xizmatTuri || "",
-          filialNomi: newEntry.filialNomi || "Zarkent filiali",
+          filialNomi: newEntry.filialNomi || "1- filiali",
           xodim: newEntry.xodim || "",
           oldingiOylardan: {
             oylarSoni: newEntry.oldingiOylardan?.oylarSoni || 0,
             summasi: newEntry.oldingiOylardan?.summasi || 0,
           },
           birOylikHisoblanganSumma: newEntry.birOylikHisoblanganSumma || 0,
-          jamiQarzDorlik,
           jamiQarzDorlik,
           tolandi: {
             jami: tolandiJami,
@@ -312,7 +311,7 @@ export default function KirimModule() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-start">
+      <div className="flex justify-between items-start sticky top-0 bg-white z-20 pt-4 pb-2 border-b border-gray-200">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900 mb-2">Kirimlar boshqaruvi</h1>
           <p className="text-gray-600">Barcha kirimlar va to'lovlarni boshqaring</p>
@@ -385,7 +384,7 @@ export default function KirimModule() {
                 <div>
                   <Label htmlFor="filialNomi">Filial nomi</Label>
                   <Select
-                    value={newEntry.filialNomi || "Zarkent filiali"}
+                    value={newEntry.filialNomi || "Zarkent Filiali"}
                     onValueChange={(value) => setNewEntry({ ...newEntry, filialNomi: value })}
                   >
                     <SelectTrigger id="filialNomi">
@@ -513,7 +512,7 @@ export default function KirimModule() {
           </Dialog>
         </div>
       </div>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4 items-center sticky top-[70px] bg-white z-20 py-2 border-b border-gray-200">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
@@ -572,12 +571,12 @@ export default function KirimModule() {
         <div className="p-6 border-b border-gray-200">
           <h3 className="text-lg font-medium">Jami hisobot jadvali ({filteredData.length})</h3>
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto sticky-container">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-10">
-                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">№</th>
-                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">
+              <tr className="border-b border-gray-200 bg-gray-50 sticky top-[120px] z-10">
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-0 bg-gray-50 z-20">№</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-[60px] bg-gray-50 z-20">
                   Korxona nomi
                 </th>
                 <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">INN</th>
@@ -642,7 +641,7 @@ export default function KirimModule() {
                 <th className="px-3 py-2"></th>
               </tr>
               <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium">
-                <td className="px-3 py-3 text-sm border-r border-gray-200" colSpan={8}>
+                <td className="px-3 py-3 text-sm border-r border-gray-200 sticky left-0 bg-gray-100 z-10" colSpan={8}>
                   Jami ko'rsatkichlar:
                 </td>
                 <td className="px-3 py-3 text-sm text-right text-blue-600 border-r border-gray-200">
@@ -680,8 +679,8 @@ export default function KirimModule() {
                     row.qoldiq > 1 ? "bg-red-300" : ""
                   }`}
                 >
-                  <td className="px-3 py-3 text-sm text-gray-900 border-r border-gray-200">{index + 1}</td>
-                  <td className="px-3 py-3 text-sm text-gray-900 font-medium border-r border-gray-200">
+                  <td className="px-3 py-3 text-sm text-gray-900 border-r border-gray-200 sticky left-0 bg-white z-10">{index + 1}</td>
+                  <td className="px-3 py-3 text-sm text-gray-900 font-medium border-r border-gray-200 sticky left-[60px] bg-white z-10">
                     {row.korxonaNomi}
                   </td>
                   <td className="px-3 py-3 text-sm text-gray-700 border-r border-gray-200">{row.inn}</td>
