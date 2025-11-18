@@ -501,7 +501,7 @@ export default function KirimModule() {
                 <th className="px-3 py-2"></th>
               </tr>
               <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium">
-                <td className="px-3 py-3 text-sm border-r border-gray-200 sticky left-0 bg-gray-100 z-10" colSpan={2}>
+                <td className="px-3 py-3 text-sm border-r border-gray-200 sticky left-0 bg-gray-100 z-10" colSpan={1}>
                   Jami ko'rsatkichlar:
                 </td>
                 <td className="px-3 py-3 text-sm text-right text-blue-600 border-r border-gray-200">
