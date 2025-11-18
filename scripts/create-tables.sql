@@ -1,3 +1,8 @@
+-- Drop existing tables if they exist
+DROP TABLE IF EXISTS kirim_data;
+DROP TABLE IF EXISTS chiqim_data;
+DROP TABLE IF EXISTS notifications;
+
 -- Create Kirim table
 CREATE TABLE kirim_data (
     id SERIAL PRIMARY KEY,
@@ -85,8 +90,14 @@ ALTER TABLE kirim_data ENABLE ROW LEVEL SECURITY;
 ALTER TABLE chiqim_data ENABLE ROW LEVEL SECURITY;
 ALTER TABLE notifications ENABLE ROW LEVEL SECURITY;
 
+-- Drop existing policies if they exist
+DROP POLICY IF EXISTS "Allow all operations on kirim_data" ON kirim_data;
+DROP POLICY IF EXISTS "Allow all operations on chiqim_data" ON chiqim_data;
+DROP POLICY IF EXISTS "Allow all operations on notifications" ON notifications;
+
 -- Create policies to allow all operations (you can make this more restrictive later)
 CREATE POLICY "Allow all operations on kirim_data" ON kirim_data FOR ALL USING (true);
 CREATE POLICY "Allow all operations on chiqim_data" ON chiqim_data FOR ALL USING (true);
 CREATE POLICY "Allow all operations on notifications" ON notifications FOR ALL USING (true);
+
 
