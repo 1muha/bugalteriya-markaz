@@ -567,18 +567,18 @@ export default function KirimModule() {
           Tozalash
         </Button>
       </div>
-      <div className="bg-white rounded-lg border border-gray-200 w-full-force max-w-none mx-0">
-  <div className="p-6 border-b border-gray-200">
-    <h3 className="text-lg font-medium">Jami hisobot jadvali ({filteredData.length})</h3>
-  </div>
-  <div className="overflow-x-auto sticky-container relative w-full-force max-w-none mx-0 px-0">
-    <table className="w-full min-w-full table-auto">
-             <thead>
-        <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-30">
-          <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-0 bg-gray-50 z-40">№</th>
-          <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-[60px] bg-gray-50 z-40">
-            Korxona nomi
-          </th>
+      <div className="bg-white rounded-lg border border-gray-200">
+        <div className="p-6 border-b border-gray-200">
+          <h3 className="text-lg font-medium">Jami hisobot jadvali ({filteredData.length})</h3>
+        </div>
+        <div className="overflow-x-auto sticky-container relative">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-30">
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-0 bg-gray-50 z-40">№</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-[60px] bg-gray-50 z-40">
+                  Korxona nomi
+                </th>
                 <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">INN</th>
                 <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">
                   Tel raqami
@@ -932,6 +932,6 @@ export default function KirimModule() {
       )}
     </div>
   );
-}
+} 
 
 
