@@ -28,7 +28,7 @@ interface ChiqimData {
   qoldiqAvans: number;
 }
 
-const filialOptions = ["Zarkent Filiali", "Nabrejniy Filiali"];
+const filialOptions = ["Zarkent Filial", "Nabrejniy Filiali"];
 
 const formatNumber = (
   value: string | number | undefined | null,
@@ -57,7 +57,7 @@ export default function ChiqimModule() {
   const [newEntry, setNewEntry] = useState<Partial<ChiqimData>>({
     sana: "",
     nomi: "",
-    filialNomi: "Zarkent Filiali",
+    filialNomi: "Zarkent Filial",
     chiqimNomi: "",
     avvalgiOylardan: 0,
     birOylikHisoblangan: 0,
@@ -190,7 +190,7 @@ export default function ChiqimModule() {
         const entry = {
           sana: newEntry.sana || "",
           nomi: newEntry.nomi || "",
-          filialNomi: newEntry.filialNomi || "Zarkent Filiali",
+          filialNomi: newEntry.filialNomi || "Zarkent Filial",
           chiqimNomi: newEntry.chiqimNomi || "",
           avvalgiOylardan: newEntry.avvalgiOylardan || 0,
           birOylikHisoblangan: newEntry.birOylikHisoblangan || 0,
@@ -208,7 +208,7 @@ export default function ChiqimModule() {
         setNewEntry({
           sana: "",
           nomi: "",
-          filialNomi: "Zarkent Filiali",
+          filialNomi: "Zarkent Filial",
           chiqimNomi: "",
           avvalgiOylardan: 0,
           birOylikHisoblangan: 0,
@@ -326,7 +326,7 @@ export default function ChiqimModule() {
                     <div>
                       <Label htmlFor="filialNomi">Filial nomi</Label>
                       <Select
-                        value={newEntry.filialNomi || "Zarkent Filiali"}
+                        value={newEntry.filialNomi || "Zarkent Filial"}
                         onValueChange={(value) => setNewEntry({ ...newEntry, filialNomi: value })}
                       >
                         <SelectTrigger>
@@ -560,13 +560,13 @@ export default function ChiqimModule() {
             <div className="p-6 border-b border-gray-200">
               <h3 className="text-lg font-medium">Chiqimlar jadvali ({filteredData.length})</h3>
             </div>
-            <div className="overflow-x-auto sticky-container">
+            <div className="overflow-x-auto sticky-container relative">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">№</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Sana</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Nomi</th>
+                  <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-30">
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-40">№</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-40">Sana</th>
+                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[150px] bg-gray-50 z-40">Nomi</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Filial nomi</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Chiqim nomi</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Avvalgi oylardan qoldiq</th>
@@ -599,9 +599,9 @@ export default function ChiqimModule() {
                 <tbody>
                   {filteredData.map((row, index) => (
                     <tr key={row.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="px-4 py-3 text-sm text-gray-900">{index + 1}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.sana}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900 font-medium">{row.nomi}</td>
+                      <td className="px-4 py-3 text-sm text-gray-900 sticky left-0 bg-white z-10">{index + 1}</td>
+                      <td className="px-4 py-3 text-sm text-gray-700 sticky left-[60px] bg-white z-10">{row.sana}</td>
+                      <td className="px-4 py-3 text-sm text-gray-900 font-medium sticky left-[150px] bg-white z-10">{row.nomi}</td>
                       <td className="px-4 py-3 text-sm text-gray-700">{row.filialNomi}</td>
                       <td className="px-4 py-3 text-sm text-gray-700">{row.chiqimNomi}</td>
                       <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.avvalgiOylardan)}</td>
@@ -848,5 +848,6 @@ export const getChiqimTotals = () => {
   // This is a placeholder; adjust based on your Balans module requirements
   return totals;
 };
+
 
 
