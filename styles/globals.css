@@ -177,3 +177,21 @@
     min-width: 100% !important;
   }
 }
+
+.w-full-force {
+  width: 100% !important;
+}
+
+.min-w-full {
+  min-width: 100% !important;
+}
+
+.max-w-none {
+  max-width: none !important;
+}
+
+.table-full {
+  table-layout: auto;
+  width: 100% !important;
+  min-width: 100% !important;
+}
