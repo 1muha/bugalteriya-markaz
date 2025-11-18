@@ -28,7 +28,7 @@ interface ChiqimData {
   qoldiqAvans: number;
 }
 
-const filialOptions = ["1-Filial", "Nabrejniy Filiali"];
+const filialOptions = ["Zarkent Filiali", "Nabrejniy Filiali"];
 
 const formatNumber = (
   value: string | number | undefined | null,
@@ -57,7 +57,7 @@ export default function ChiqimModule() {
   const [newEntry, setNewEntry] = useState<Partial<ChiqimData>>({
     sana: "",
     nomi: "",
-    filialNomi: "1-Filial",
+    filialNomi: "Zarkent Filiali",
     chiqimNomi: "",
     avvalgiOylardan: 0,
     birOylikHisoblangan: 0,
@@ -190,7 +190,7 @@ export default function ChiqimModule() {
         const entry = {
           sana: newEntry.sana || "",
           nomi: newEntry.nomi || "",
-          filialNomi: newEntry.filialNomi || "1-Filial",
+          filialNomi: newEntry.filialNomi || "Zarkent Filiali",
           chiqimNomi: newEntry.chiqimNomi || "",
           avvalgiOylardan: newEntry.avvalgiOylardan || 0,
           birOylikHisoblangan: newEntry.birOylikHisoblangan || 0,
@@ -208,7 +208,7 @@ export default function ChiqimModule() {
         setNewEntry({
           sana: "",
           nomi: "",
-          filialNomi: "1-Filial",
+          filialNomi: "Zarkent Filiali",
           chiqimNomi: "",
           avvalgiOylardan: 0,
           birOylikHisoblangan: 0,
@@ -326,7 +326,7 @@ export default function ChiqimModule() {
                     <div>
                       <Label htmlFor="filialNomi">Filial nomi</Label>
                       <Select
-                        value={newEntry.filialNomi || "1-Filial"}
+                        value={newEntry.filialNomi || "Zarkent Filiali"}
                         onValueChange={(value) => setNewEntry({ ...newEntry, filialNomi: value })}
                       >
                         <SelectTrigger>
