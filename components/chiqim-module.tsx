@@ -494,7 +494,7 @@ export default function ChiqimModule() {
           </div>
 
           {/* Search and Filter Section */}
-          <div className="bg-white rounded-lg border border-gray-200 p-4 sticky top-[70px] bg-white z-20 py-2 border-b border-gray-200">
+          <div className="bg-white rounded-lg border border-gray-200 p-4 bg-white z-20 py-2 border-b border-gray-200">
             <div className="flex items-center gap-2 mb-3">
               <Search className="h-4 w-4 text-gray-400" />
               <h3 className="text-base font-medium">Qidiruv va filtr</h3>
