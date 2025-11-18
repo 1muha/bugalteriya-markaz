@@ -35,7 +35,7 @@ interface KirimData {
   lastUpdated: string;
 }
 
-const filialOptions = ["1-Filial", "Nabrejniy Filiali"];
+const filialOptions = ["Zarkent Filial", "Nabrejniy Filiali"];
 
 const formatNumber = (
   value: string | number | undefined | null,
@@ -384,7 +384,7 @@ export default function KirimModule() {
                 <div>
                   <Label htmlFor="filialNomi">Filial nomi</Label>
                   <Select
-                    value={newEntry.filialNomi || "1-filial"}
+                    value={newEntry.filialNomi || "Zarkent Filiali"}
                     onValueChange={(value) => setNewEntry({ ...newEntry, filialNomi: value })}
                   >
                     <SelectTrigger id="filialNomi">
