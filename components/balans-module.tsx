@@ -31,7 +31,7 @@ interface BalansData {
   jamiYigirmaAyirmasi: number
 }
 
-const filialOptions = ["Zarkent Filiali", "Nabrejniy Filiali"]
+const filialOptions = ["1-Filial", "Nabrejniy"]
 
 export default function BalansModule() {
   const { kirimData, chiqimData } = useAccounting()
@@ -260,7 +260,7 @@ export default function BalansModule() {
   return (
     <div className="space-y-6">
       {/* Header Section */}
-      <div className="flex justify-between items-start">
+      <div className="flex justify-between items-start sticky top-0 bg-white z-20 pt-4 pb-2 border-b border-gray-200">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900 mb-2">Balans hisoboti</h1>
           <p className="text-gray-600">Filiallar bo'yicha Kirim va Chiqim modullaridan avtomatik olingan ma'lumotlar</p>
@@ -274,7 +274,7 @@ export default function BalansModule() {
       </div>
 
       {/* Filter Section */}
-      <div className="bg-white rounded-lg border border-gray-200 p-4">
+      <div className="bg-white rounded-lg border border-gray-200 p-4 sticky top-[70px] bg-white z-20 py-2 border-b border-gray-200">
         <div className="flex items-center gap-2 mb-3">
           <Calendar className="h-4 w-4 text-gray-400" />
           <h3 className="text-base font-medium">Filtr va sana oralig'i</h3>
@@ -337,12 +337,12 @@ export default function BalansModule() {
           </p>
         </div>
 
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto sticky-container">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200 bg-gray-50">
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">№</th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Filial nomi</th>
+              <tr className="border-b border-gray-200 bg-gray-50 sticky top-[120px] z-10">
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-20">№</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-20">Filial nomi</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Oldingi oylardan qoldiq summa</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                   Bir oylik hisoblangan summa (iyul)
@@ -383,7 +383,7 @@ export default function BalansModule() {
 
               {/* Totals Row */}
               <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium">
-                <td className="px-4 py-3 text-sm" colSpan={2}>
+                <td className="px-4 py-3 text-sm sticky left-0 bg-gray-100 z-10" colSpan={2}>
                   Jami ko'rsatkichlar:
                 </td>
                 <td className="px-4 py-3 text-sm text-right">{totals.oldingiOylardan.toLocaleString()} so'm</td>
@@ -411,8 +411,8 @@ export default function BalansModule() {
               {data.length > 0 ? (
                 data.map((row, index) => (
                   <tr key={row.id} className="border-b border-gray-100 hover:bg-gray-50">
-                    <td className="px-4 py-3 text-sm text-gray-900">{index + 1}</td>
-                    <td className="px-4 py-3 text-sm text-gray-900 font-medium">{row.filialNomi}</td>
+                    <td className="px-4 py-3 text-sm text-gray-900 sticky left-0 bg-white z-10">{index + 1}</td>
+                    <td className="px-4 py-3 text-sm text-gray-900 font-medium sticky left-[60px] bg-white z-10">{row.filialNomi}</td>
                     <td className="px-4 py-3 text-sm text-right text-gray-700">
                       {row.oldingiOylardan.toLocaleString()} so'm
                     </td>
@@ -546,3 +546,4 @@ export default function BalansModule() {
     </div>
   )
 }
+
