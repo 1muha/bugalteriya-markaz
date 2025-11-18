@@ -31,7 +31,7 @@ interface BalansData {
   jamiYigirmaAyirmasi: number
 }
 
-const filialOptions = ["Zarkent Filiali", "Nabrejniy Filiali"]
+const filialOptions = ["Zarkent Filial", "Nabrejniy Filiali"]
 
 export default function BalansModule() {
   const { kirimData, chiqimData } = useAccounting()
@@ -268,7 +268,7 @@ export default function BalansModule() {
         <div className="flex gap-3">
           <Button onClick={downloadCSV} variant="outline" className="flex items-center gap-2 bg-transparent">
             <Download className="h-4 w-4" />
-            CSV yuklab olish
+            CSV yuktab olish
           </Button>
         </div>
       </div>
@@ -337,12 +337,12 @@ export default function BalansModule() {
           </p>
         </div>
 
-        <div className="overflow-x-auto sticky-container">
+        <div className="overflow-x-auto sticky-container relative">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200 bg-gray-50 sticky top-[120px] z-10">
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-20">№</th>
-                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-20">Filial nomi</th>
+              <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-30">
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-40">№</th>
+                <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-40">Filial nomi</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Oldingi oylardan qoldiq summa</th>
                 <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">
                   Bir oylik hisoblangan summa (iyul)
@@ -546,4 +546,3 @@ export default function BalansModule() {
     </div>
   )
 }
-
