@@ -571,12 +571,12 @@ export default function KirimModule() {
         <div className="p-6 border-b border-gray-200">
           <h3 className="text-lg font-medium">Jami hisobot jadvali ({filteredData.length})</h3>
         </div>
-        <div className="overflow-x-auto sticky-container">
+        <div className="overflow-x-auto sticky-container relative">
           <table className="w-full">
             <thead>
-              <tr className="border-b border-gray-200 bg-gray-50 sticky top-[120px] z-10">
-                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-0 bg-gray-50 z-20">№</th>
-                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-[60px] bg-gray-50 z-20">
+              <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-30">
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-0 bg-gray-50 z-40">№</th>
+                <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200 sticky left-[60px] bg-gray-50 z-40">
                   Korxona nomi
                 </th>
                 <th className="px-3 py-3 text-left text-sm font-medium text-gray-700 border-r border-gray-200">INN</th>
@@ -933,4 +933,5 @@ export default function KirimModule() {
     </div>
   );
 }
+
 
