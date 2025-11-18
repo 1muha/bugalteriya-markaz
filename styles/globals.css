@@ -120,4 +120,15 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Sticky table styles */
+  .sticky-container {
+    overflow-x: auto;
+  }
+  
+  .sticky-container table th,
+  .sticky-container table td {
+    position: relative;
+  }
 }
+
