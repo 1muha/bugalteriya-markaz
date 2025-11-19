@@ -148,7 +148,10 @@ export default function KirimModule() {
     const link = document.createElement("a");
     const url = URL.createObjectURL(blob);
     link.setAttribute("href", url);
-    link.setAttribute("download", jami_hisobot_${new Date().toISOString().split("T")[0]}.csv);
+    link.setAttribute(
+    "download",
+    `jami_hisobot_${new Date().toISOString().split("T")[0]}.csv`
+  );
     link.style.visibility = "hidden";
     document.body.appendChild(link);
     link.click();
