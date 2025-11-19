@@ -572,7 +572,7 @@ export default function KirimModule() {
         <div className="p-6 border-b border-gray-200">
           <h3 className="text-lg font-medium">Jami hisobot jadvali ({filteredData.length})</h3>
         </div>
-        <div className="overflow-x-auto">
+        <div className="sticky-container overflow-auto max-h-[600px]">
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-10">
