@@ -188,3 +188,18 @@
   .min-w-full { min-width: 100% !important; }
   .max-w-none { max-width: none !important; }
 }
+
+
+/* Shu bla */
+
+
+/* UZBEK EMPIRE SCROLL ARROWS 2025 */
+.scrollbar-thin::-webkit-scrollbar { height: 8px; width: 8px; }
+.scrollbar-thin::-webkit-scrollbar-thumb { @apply bg-black/60 rounded-full hover:bg-black; }
+.scrollbar-thin::-webkit-scrollbar-track { @apply bg-gray-100; }
+
+/* Sticky chap ustunlar gradient bilan */
+td.sticky, th.sticky {
+  box-shadow: 4px 0 10px -2px rgba(0,0,0,0.15) !important;
+}
+
