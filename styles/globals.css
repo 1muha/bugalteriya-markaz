@@ -186,5 +186,45 @@
   min-width: 100% !important;
 }
 
+.sticky-container {
+  overflow: auto;
+  max-height: 600px; /* istalgan balandlik */
+}
 
+/* Jadval sarlavhasini (thead) sticky qilish */
+.sticky-container thead th {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 20;
+}
+
+/* Chapdagi 2ta ustunni sticky qilish */
+.sticky-container td:first-child,
+.sticky-container th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 30;
+  background: white;
+}
+
+.sticky-container td:nth-child(2),
+.sticky-container th:nth-child(2) {
+  position: sticky;
+  left: 160px; /* birinchi ustun kengligiga qarab mosla */
+  z-index: 30;
+  background: white;
+}
+
+/* Scroll bo‘lganda soyali chiziq uchun (optional) */
+.sticky-container th:first-child::after,
+.sticky-container th:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: #e5e7eb; /* gray-200 */
+}
 
