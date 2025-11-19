@@ -572,7 +572,7 @@ export default function KirimModule() {
         <div className="p-6 border-b border-gray-200">
           <h3 className="text-lg font-medium">Jami hisobot jadvali ({filteredData.length})</h3>
         </div>
-        <div className="sticky-container overflow-auto max-h-[600px]">
+        <div id="tableContainer" className="sticky-container overflow-auto max-h-[600px]">
           <table className="w-full">
             <thead>
               <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-10">
@@ -745,6 +745,20 @@ export default function KirimModule() {
             </tbody>
           </table>
         </div>
+        <button
+  onClick={() => {
+    const elem = document.getElementById("tableContainer");
+    if (!document.fullscreenElement) {
+      elem?.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }}
+  className="px-4 py-2 mt-2 bg-blue-600 text-white rounded"
+>
+  Katta ekranda ko‘rsatish
+</button>
+
       </div>
       {editingItem && (
         <Dialog open={!!editingItem} onOpenChange={() => setEditingItem(null)}>
