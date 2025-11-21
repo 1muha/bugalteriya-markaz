@@ -28,7 +28,7 @@ interface ChiqimData {
   qoldiqAvans: number;
 }
 
-const filialOptions = ["Zarkent Filial", "Nabrejniy Filiali"];
+const filialOptions = ["Zarkent Filiali", "Nabrejniy Filiali"];
 
 const formatNumber = (
   value: string | number | undefined | null,
@@ -57,7 +57,7 @@ export default function ChiqimModule() {
   const [newEntry, setNewEntry] = useState<Partial<ChiqimData>>({
     sana: "",
     nomi: "",
-    filialNomi: "Zarkent Filial",
+    filialNomi: "Zarkent Filiali",
     chiqimNomi: "",
     avvalgiOylardan: 0,
     birOylikHisoblangan: 0,
