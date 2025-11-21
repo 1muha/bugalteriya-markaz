@@ -556,6 +556,7 @@ export default function ChiqimModule() {
           </div>
 
           {/* Data Table */}
+        <div id="fullPageContainer" className="sticky-container overflow-auto max-h-[600px] bg-white">
           <div className="bg-white rounded-lg border border-gray-200">
             <div className="p-6 border-b border-gray-200">
               <h3 className="text-lg font-medium">Chiqimlar jadvali ({filteredData.length})</h3>
@@ -639,7 +640,7 @@ export default function ChiqimModule() {
               </table>
             </div>
           </div>
-
+        </div>
           {/* Edit Modal */}
           {editingItem && (
             <Dialog open={!!editingItem} onOpenChange={() => setEditingItem(null)}>
