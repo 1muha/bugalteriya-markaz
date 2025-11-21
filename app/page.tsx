@@ -28,7 +28,12 @@ export default function AccountingService() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <NotificationManager />
-                  <button className="text-gray-600 hover:text-gray-900">Yangilash</button>
+                  <button
+                    className="text-gray-600 hover:text-gray-900"
+                    onClick={() => window.location.reload()}
+                  >Yangilash 
+                  </button>
+
                   <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-semibold">
                     A
                   </div>
