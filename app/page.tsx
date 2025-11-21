@@ -35,7 +35,7 @@ export default function AccountingService() {
                   </button>
 
                   <a href="https://t.me/HacktiveBuyuk" target="_blank" rel="noopener noreferrer">
-  <div className="bg-blue-600 text-white rounded-full w-32 h-16 flex items-center justify-center font-semibold text-lg">
+  <div className="bg-blue-600 text-white rounded-full w-15 h-15 flex items-center justify-center font-semibold text-xs">
     Dasturlovchi
   </div>
 </a>
