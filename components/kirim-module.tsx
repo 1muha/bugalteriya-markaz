@@ -620,7 +620,7 @@ export default function KirimModule() {
                 </th>
                 <th className="px-3 py-3 text-center text-sm font-medium text-gray-700">Amallar</th>
               </tr>
-              <tr className="border-b border-gray-200 bg-gray-50">
+              <tr className="border-b border-gray-200 bg-gray-50 sticky top-20 z-10">
                 <th className="px-3 py-2 border-r border-gray-200"></th>
                 <th className="px-3 py-2 border-r border-gray-200"></th>
                 <th className="px-3 py-2 border-r border-gray-200"></th>
@@ -641,7 +641,7 @@ export default function KirimModule() {
                 <th className="px-3 py-2 border-r border-gray-200"></th>
                 <th className="px-3 py-2"></th>
               </tr>
-              <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-20 z-10">
+              <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-40 z-10">
                 <td className="px-3 py-3 text-sm border-r border-gray-200" colSpan={8}>
                   Jami ko'rsatkichlar:
                 </td>
