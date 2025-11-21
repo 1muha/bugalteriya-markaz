@@ -564,7 +564,7 @@ export default function ChiqimModule() {
             <div className="overflow-x-auto sticky-container relative">
               <table className="w-full">
                 <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50 sticky top-[70px] p-4 z-20 py-2 border-b">
+                  <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 p-4 z-10 py-2">
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-40">№</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-40">Sana</th>
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[150px] bg-gray-50 z-40">Nomi</th>
