@@ -581,7 +581,7 @@ export default function ChiqimModule() {
                     <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Qoldiq avans</th>
                     <th className="px-4 py-3 text-center text-sm font-medium text-gray-700">Amallar</th>
                   </tr>
-                  <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-20 z-10">">
+                  <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-20 z-10">
                     <td className="px-4 py-3 text-sm" colSpan={5}>
                       Jami ko'rsatkichlar:
                     </td>
