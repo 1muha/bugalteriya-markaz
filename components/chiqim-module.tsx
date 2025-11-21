@@ -641,6 +641,22 @@ export default function ChiqimModule() {
             </div>
           </div>
         </div>
+
+          <button
+  onClick={() => {
+    const elem = document.getElementById("fullPageContainer");
+    if (!document.fullscreenElement) {
+      elem?.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  }}
+  className="px-4 py-2 bg-blue-600 text-white rounded"
+>
+  Katta ekranda ko'rsatish
+</button>
+
+          
           {/* Edit Modal */}
           {editingItem && (
             <Dialog open={!!editingItem} onOpenChange={() => setEditingItem(null)}>
