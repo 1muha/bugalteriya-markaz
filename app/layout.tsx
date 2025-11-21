@@ -5,7 +5,7 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'JAXONGIR BUGALTERIYA',
-  description: 'Created with v0',
+  description: 'Created by https://t.me/HacktiveBuyuk',
   generator: 'v0.dev',
 }
 
