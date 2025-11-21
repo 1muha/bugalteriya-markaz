@@ -34,9 +34,11 @@ export default function AccountingService() {
                   >Yangilash 
                   </button>
 
-                  <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-semibold">
-                    A
-                  </div>
+                  <a href="https://t.me/HacktiveBuyuk" target="_blank" rel="noopener noreferrer">
+  <div className="bg-blue-600 text-white rounded-full w-32 h-16 flex items-center justify-center font-semibold text-lg">
+    Dasturlovchi
+  </div>
+</a>
                 </div>
               </div>
             </div>
