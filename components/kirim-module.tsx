@@ -320,7 +320,7 @@ export default function KirimModule() {
         <div className="flex gap-3">
           <Button onClick={downloadCSV} variant="outline" className="flex items-center gap-2 bg-transparent">
             <Download className="h-4 w-4" />
-            Download CSV
+            CSV Yuklab Olish
           </Button>
           <Dialog open={isAddModalOpen} onOpenChange={setIsAddModalOpen}>
             <DialogTrigger asChild>
