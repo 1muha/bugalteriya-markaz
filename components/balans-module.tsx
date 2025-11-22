@@ -268,7 +268,7 @@ export default function BalansModule() {
         <div className="flex gap-3">
           <Button onClick={downloadCSV} variant="outline" className="flex items-center gap-2 bg-transparent">
             <Download className="h-4 w-4" />
-            CSV yuktab olish
+            CSV yuklab olish
           </Button>
         </div>
       </div>
