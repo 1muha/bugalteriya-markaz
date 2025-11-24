@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS kirim_data;
 DROP TABLE IF EXISTS chiqim_data;
 DROP TABLE IF EXISTS notifications;
 
--- Create Kirim table
+-- Create Kirim tabl
 CREATE TABLE kirim_data (
     id SERIAL PRIMARY KEY,
     korxona_nomi VARCHAR(255) NOT NULL,
