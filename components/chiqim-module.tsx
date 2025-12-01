@@ -190,7 +190,7 @@ export default function ChiqimModule() {
         const entry = {
           sana: newEntry.sana || "",
           nomi: newEntry.nomi || "",
-          filialNomi: newEntry.filialNomi || "Zarkent Filial",
+          filialNomi: newEntry.filialNomi || "Zarkent Filiali",
           chiqimNomi: newEntry.chiqimNomi || "",
           avvalgiOylardan: newEntry.avvalgiOylardan || 0,
           birOylikHisoblangan: newEntry.birOylikHisoblangan || 0,
@@ -208,7 +208,7 @@ export default function ChiqimModule() {
         setNewEntry({
           sana: "",
           nomi: "",
-          filialNomi: "Zarkent Filial",
+          filialNomi: "Zarkent Filiali",
           chiqimNomi: "",
           avvalgiOylardan: 0,
           birOylikHisoblangan: 0,
@@ -326,7 +326,7 @@ export default function ChiqimModule() {
                     <div>
                       <Label htmlFor="filialNomi">Filial nomi</Label>
                       <Select
-                        value={newEntry.filialNomi || "Zarkent Filial"}
+                        value={newEntry.filialNomi || "Zarkent Filiali"}
                         onValueChange={(value) => setNewEntry({ ...newEntry, filialNomi: value })}
                       >
                         <SelectTrigger>
@@ -561,103 +561,102 @@ export default function ChiqimModule() {
               <h3 className="text-lg font-medium">Chiqimlar jadvali ({filteredData.length})</h3>
             </div>
             <div className="overflow-x-auto sticky-container relative">
-          <div id="fullPageContainer" className="sticky-container overflow-auto max-h-[600px] bg-white">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-10">
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-40">№</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-40">Sana</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[150px] bg-gray-50 z-40">Nomi</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Filial nomi</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Chiqim nomi</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Avvalgi oylardan qoldiq</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Bir oylik hisoblangan summa</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Jami hisoblangan</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">To'langan (Jami)</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Naqd</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Prechisleniya</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Karta</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Qoldiq qarzdorlik</th>
-                    <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Qoldiq avans</th>
-                    <th className="px-4 py-3 text-center text-sm font-medium text-gray-700">Amallar</th>
-                  </tr>
-                  <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-20 z-10">
-                    <td className="px-4 py-3 text-sm" colSpan={5}>
-                      Jami ko'rsatkichlar:
-                    </td>
-                    <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.avvalgiOylardan)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.birOylikHisoblangan)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-green-600">{formatNumber(totals.jamiHisoblangan)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.tolangan)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.naqd)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.prechisleniya)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.karta)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-red-600">{formatNumber(totals.qoldiqQarzDorlik)}</td>
-                    <td className="px-4 py-3 text-sm text-right text-blue-600">{formatNumber(totals.qoldiqAvans)}</td>
-                    <td className="px-4 py-3"></td>
-                  </tr>
-                </thead>
-                <tbody>
-                  {filteredData.map((row, index) => (
-                    <tr key={row.id} className="border-b border-gray-100 hover:bg-gray-50">
-                      <td className="px-4 py-3 text-sm text-gray-900 sticky left-0 bg-white z-10">{index + 1}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700 sticky left-[60px] bg-white z-10">{row.sana}</td>
-                      <td className="px-4 py-3 text-sm text-gray-900 font-medium sticky left-[150px] bg-white z-10">{row.nomi}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.filialNomi}</td>
-                      <td className="px-4 py-3 text-sm text-gray-700">{row.chiqimNomi}</td>
-                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.avvalgiOylardan)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.birOylikHisoblangan)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-green-600">{formatNumber(row.jamiHisoblangan)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.jami)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.naqd)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.prechisleniya)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.karta)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-red-600">{formatNumber(row.qoldiqQarzDorlik)}</td>
-                      <td className="px-4 py-3 text-sm text-right text-blue-600">{formatNumber(row.qoldiqAvans)}</td>
-                      <td className="px-4 py-3 text-center">
-                        <div className="flex items-center justify-center gap-1">
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={() => setEditingItem(row)}
-                            className="h-8 w-8 p-0 text-blue-600 hover:bg-blue-50"
-                          >
-                            <Edit className="h-4 w-4" />
-                          </Button>
-                          <Button
-                            size="sm"
-                            variant="ghost"
-                            onClick={() => deleteEntry(row.id)}
-                            className="h-8 w-8 p-0 text-red-600 hover:bg-red-50"
-                          >
-                            <Trash2 className="h-4 w-4" />
-                          </Button>
-                        </div>
-                      </td>
+              <div id="fullPageContainer" className="overflow-auto max-h-[600px] bg-white">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-10">
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-40">№</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-40">Sana</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[150px] bg-gray-50 z-40">Nomi</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Filial nomi</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Chiqim nomi</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Avvalgi oylardan qoldiq</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Bir oylik hisoblangan summa</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Jami hisoblangan</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">To'langan (Jami)</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Naqd</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Prechisleniya</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Karta</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Qoldiq qarzdorlik</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Qoldiq avans</th>
+                      <th className="px-4 py-3 text-center text-sm font-medium text-gray-700">Amallar</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-          </div>
+                    <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-20 z-10">
+                      <td className="px-4 py-3 text-sm" colSpan={5}>
+                        Jami ko'rsatkichlar:
+                      </td>
+                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.avvalgiOylardan)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.birOylikHisoblangan)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-green-600">{formatNumber(totals.jamiHisoblangan)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.tolangan)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.naqd)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.prechisleniya)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(totals.karta)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-red-600">{formatNumber(totals.qoldiqQarzDorlik)}</td>
+                      <td className="px-4 py-3 text-sm text-right text-blue-600">{formatNumber(totals.qoldiqAvans)}</td>
+                      <td className="px-4 py-3"></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredData.map((row, index) => (
+                      <tr key={row.id} className="border-b border-gray-100 hover:bg-gray-50">
+                        <td className="px-4 py-3 text-sm text-gray-900 sticky left-0 bg-white z-10">{index + 1}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700 sticky left-[60px] bg-white z-10">{row.sana}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900 font-medium sticky left-[150px] bg-white z-10">{row.nomi}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{row.filialNomi}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{row.chiqimNomi}</td>
+                        <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.avvalgiOylardan)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.birOylikHisoblangan)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-green-600">{formatNumber(row.jamiHisoblangan)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.jami)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.naqd)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.prechisleniya)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.tolangan.karta)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-red-600">{formatNumber(row.qoldiqQarzDorlik)}</td>
+                        <td className="px-4 py-3 text-sm text-right text-blue-600">{formatNumber(row.qoldiqAvans)}</td>
+                        <td className="px-4 py-3 text-center">
+                          <div className="flex items-center justify-center gap-1">
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => setEditingItem(row)}
+                              className="h-8 w-8 p-0 text-blue-600 hover:bg-blue-50"
+                            >
+                              <Edit className="h-4 w-4" />
+                            </Button>
+                            <Button
+                              size="sm"
+                              variant="ghost"
+                              onClick={() => deleteEntry(row.id)}
+                              className="h-8 w-8 p-0 text-red-600 hover:bg-red-50"
+                            >
+                              <Trash2 className="h-4 w-4" />
+                            </Button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="p-4 border-t border-gray-200 flex justify-end">
+              <button
+                onClick={() => {
+                  const elem = document.getElementById("fullPageContainer");
+                  if (!document.fullscreenElement) {
+                    elem?.requestFullscreen();
+                  } else {
+                    document.exitFullscreen();
+                  }
+                }}
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              >
+                Katta ekranda ko'rsatish
+              </button>
             </div>
           </div>
-        </div>
 
-          <button
-  onClick={() => {
-    const elem = document.getElementById("fullPageContainer");
-    if (!document.fullscreenElement) {
-      elem?.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
-  }}
-  className="px-4 py-2 bg-blue-600 text-white rounded"
->
-  Katta ekranda ko'rsatish
-</button>
-
-          
           {/* Edit Modal */}
           {editingItem && (
             <Dialog open={!!editingItem} onOpenChange={() => setEditingItem(null)}>
@@ -849,13 +848,14 @@ export default function ChiqimModule() {
                   </Button>
                   <Button onClick={() => updateEntry(editingItem)} className="bg-gray-900 hover:bg-gray-800 text-white">
                     Saqlash
-                  </Button> 
+                  </Button>
                 </div>
               </DialogContent>
             </Dialog>
           )}
         </>
       )}
+    </div>
   );
 }
 
