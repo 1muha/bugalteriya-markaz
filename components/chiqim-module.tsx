@@ -658,9 +658,9 @@ export default function ChiqimModule() {
                   <tbody>
                     {filteredData.map((row, index) => (
                       <tr key={row.id} className="border-b border-gray-100 hover:bg-gray-50">
-                        <td className="px-4 py-3 text-sm text-gray-900 sticky left-0 bg-white z-10">{index + 1}</td>
-                        <td className="px-4 py-3 text-sm text-gray-700 sticky left-[60px] bg-white z-10">{row.sana}</td>
-                        <td className="px-4 py-3 text-sm text-gray-900 font-medium sticky left-[150px] bg-white z-10">{row.nomi}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900">{index + 1}</td>
+                        <td className="px-4 py-3 text-sm text-gray-700">{row.sana}</td>
+                        <td className="px-4 py-3 text-sm text-gray-900">{row.nomi}</td>
                         <td className="px-4 py-3 text-sm text-gray-700">{row.filialNomi}</td>
                         <td className="px-4 py-3 text-sm text-gray-700">{row.chiqimNomi}</td>
                         <td className="px-4 py-3 text-sm text-right text-gray-700">{formatNumber(row.avvalgiOylardan)}</td>
