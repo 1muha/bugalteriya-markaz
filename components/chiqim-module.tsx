@@ -556,12 +556,12 @@ export default function ChiqimModule() {
           </div>
 
           {/* Data Table */}
-        <div id="fullPageContainer" className="sticky-container overflow-auto max-h-[600px] bg-white">
           <div className="bg-white rounded-lg border border-gray-200">
             <div className="p-6 border-b border-gray-200">
               <h3 className="text-lg font-medium">Chiqimlar jadvali ({filteredData.length})</h3>
             </div>
             <div className="overflow-x-auto sticky-container relative">
+          <div id="fullPageContainer" className="sticky-container overflow-auto max-h-[600px] bg-white">
               <table className="w-full">
                 <thead>
                   <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-10">
@@ -638,6 +638,7 @@ export default function ChiqimModule() {
                   ))}
                 </tbody>
               </table>
+          </div>
             </div>
           </div>
         </div>
@@ -855,7 +856,6 @@ export default function ChiqimModule() {
           )}
         </>
       )}
-    </div>
   );
 }
 
