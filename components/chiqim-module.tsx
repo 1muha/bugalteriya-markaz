@@ -1,12 +1,12 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
-import { Download, Search, Plus, Edit, Trash2 } from "lucide-react";
+import { Download, Search, Plus, Edit, Trash2, Maximize2, Minimize2 } from "lucide-react";
 import { useAccounting } from "@/contexts/accounting-context";
 
 interface ChiqimData {
@@ -54,6 +54,9 @@ export default function ChiqimModule() {
   });
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [editingItem, setEditingItem] = useState<ChiqimData | null>(null);
+  const [isFullScreen, setIsFullScreen] = useState(false);
+  const tableContainerRef = useRef<HTMLDivElement>(null);
+  
   const [newEntry, setNewEntry] = useState<Partial<ChiqimData>>({
     sana: "",
     nomi: "",
@@ -63,6 +66,19 @@ export default function ChiqimModule() {
     birOylikHisoblangan: 0,
     tolangan: { jami: 0, naqd: 0, prechisleniya: 0, karta: 0 },
   });
+
+  // Fullscreen chiqish uchun event listener
+  useEffect(() => {
+    const handleFullScreenChange = () => {
+      setIsFullScreen(!!document.fullscreenElement);
+    };
+
+    document.addEventListener('fullscreenchange', handleFullScreenChange);
+    
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullScreenChange);
+    };
+  }, []);
 
   const calculateJamiHisoblangan = (avvalgiOylardan: number, birOylikHisoblangan: number) => {
     return avvalgiOylardan + birOylikHisoblangan;
@@ -269,6 +285,28 @@ export default function ChiqimModule() {
       startDate: "",
       endDate: "",
     });
+  };
+
+  const toggleFullScreen = async () => {
+    const elem = tableContainerRef.current;
+    
+    if (!elem) return;
+    
+    try {
+      if (!document.fullscreenElement) {
+        // Fullscreen ochish
+        await elem.requestFullscreen();
+        setIsFullScreen(true);
+      } else {
+        // Fullscreen yopish
+        if (document.exitFullscreen) {
+          await document.exitFullscreen();
+        }
+        setIsFullScreen(false);
+      }
+    } catch (err) {
+      console.error('Fullscreen error:', err);
+    }
   };
 
   return (
@@ -557,17 +595,37 @@ export default function ChiqimModule() {
 
           {/* Data Table */}
           <div className="bg-white rounded-lg border border-gray-200">
-            <div className="p-6 border-b border-gray-200">
+            <div className="p-6 border-b border-gray-200 flex justify-between items-center">
               <h3 className="text-lg font-medium">Chiqimlar jadvali ({filteredData.length})</h3>
+              <Button
+                onClick={toggleFullScreen}
+                variant="outline"
+                className="flex items-center gap-2"
+              >
+                {isFullScreen ? (
+                  <>
+                    <Minimize2 className="h-4 w-4" />
+                    Ekrandan chiqish
+                  </>
+                ) : (
+                  <>
+                    <Maximize2 className="h-4 w-4" />
+                    Katta ekranda ko'rsatish
+                  </>
+                )}
+              </Button>
             </div>
-            <div className="overflow-x-auto sticky-container relative">
-              <div id="fullPageContainer" className="overflow-auto max-h-[600px] bg-white">
+            <div 
+              ref={tableContainerRef}
+              className={`overflow-x-auto relative ${isFullScreen ? 'h-[calc(100vh-200px)]' : 'max-h-[600px]'}`}
+            >
+              <div className={`overflow-auto ${isFullScreen ? 'h-full' : 'max-h-[600px]'} bg-white`}>
                 <table className="w-full">
                   <thead>
                     <tr className="border-b border-gray-200 bg-gray-50 sticky top-0 z-10">
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">№</th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Sana</th>
-                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Nomi</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-0 bg-gray-50 z-40">№</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[60px] bg-gray-50 z-40">Sana</th>
+                      <th className="px-4 py-3 text-left text-sm font-medium text-gray-700 sticky left-[150px] bg-gray-50 z-40">Nomi</th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Filial nomi</th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Chiqim nomi</th>
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Avvalgi oylardan qoldiq</th>
@@ -581,7 +639,7 @@ export default function ChiqimModule() {
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Qoldiq avans</th>
                       <th className="px-4 py-3 text-center text-sm font-medium text-gray-700">Amallar</th>
                     </tr>
-                    <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-15 z-10">
+                    <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-12 z-10">
                       <td className="px-4 py-3 text-sm" colSpan={5}>
                         Jami ko'rsatkichlar:
                       </td>
@@ -639,21 +697,6 @@ export default function ChiqimModule() {
                   </tbody>
                 </table>
               </div>
-            </div>
-            <div className="p-4 border-t border-gray-200 flex justify-end">
-              <button
-                onClick={() => {
-                  const elem = document.getElementById("fullPageContainer");
-                  if (!document.fullscreenElement) {
-                    elem?.requestFullscreen();
-                  } else {
-                    document.exitFullscreen();
-                  }
-                }}
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-              >
-                Katta ekranda ko'rsatish
-              </button>
             </div>
           </div>
 
