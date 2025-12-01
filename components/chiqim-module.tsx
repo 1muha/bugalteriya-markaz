@@ -269,6 +269,8 @@ export default function ChiqimModule() {
   };
 
   const deleteEntry = async (id: number) => {
+    if (!confirm("Ushbu chiqimni o'chirishni tasdiqlaysizmi?")) return;
+    
     try {
       await deleteChiqim(id);
     } catch (error) {
@@ -307,6 +309,18 @@ export default function ChiqimModule() {
     } catch (err) {
       console.error('Fullscreen error:', err);
     }
+  };
+
+  // Tahrir qilish uchun yordamchi funksiya
+  const handleEditClick = (item: ChiqimData) => {
+    console.log("Edit clicked for item:", item);
+    setEditingItem(item);
+  };
+
+  // Delete uchun yordamchi funksiya
+  const handleDeleteClick = (id: number) => {
+    console.log("Delete clicked for id:", id);
+    deleteEntry(id);
   };
 
   return (
@@ -639,7 +653,7 @@ export default function ChiqimModule() {
                       <th className="px-4 py-3 text-left text-sm font-medium text-gray-700">Qoldiq avans</th>
                       <th className="px-4 py-3 text-center text-sm font-medium text-gray-700">Amallar</th>
                     </tr>
-                    <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-20 z-10">
+                    <tr className="border-b-2 border-gray-300 bg-gray-100 font-medium sticky top-12 z-10">
                       <td className="px-4 py-3 text-sm" colSpan={5}>
                         Jami ko'rsatkichlar:
                       </td>
@@ -677,7 +691,7 @@ export default function ChiqimModule() {
                             <Button
                               size="sm"
                               variant="ghost"
-                              onClick={() => setEditingItem(row)}
+                              onClick={() => handleEditClick(row)}
                               className="h-8 w-8 p-0 text-blue-600 hover:bg-blue-50"
                             >
                               <Edit className="h-4 w-4" />
@@ -685,7 +699,7 @@ export default function ChiqimModule() {
                             <Button
                               size="sm"
                               variant="ghost"
-                              onClick={() => deleteEntry(row.id)}
+                              onClick={() => handleDeleteClick(row.id)}
                               className="h-8 w-8 p-0 text-red-600 hover:bg-red-50"
                             >
                               <Trash2 className="h-4 w-4" />
@@ -701,15 +715,17 @@ export default function ChiqimModule() {
           </div>
 
           {/* Edit Modal */}
-          {editingItem && (
-            <Dialog open={!!editingItem} onOpenChange={() => setEditingItem(null)}>
-              <DialogContent className="max-w-2xl">
-                <DialogHeader>
-                  <DialogTitle>Chiqimni tahrirlash</DialogTitle>
-                  <p className="text-sm text-gray-600">
-                    Ma'lumotlarni yangilang (Jami hisoblangan va Qoldiqlar avtomatik hisoblanadi)
-                  </p>
-                </DialogHeader>
+          <Dialog open={!!editingItem} onOpenChange={(open) => {
+            if (!open) setEditingItem(null);
+          }}>
+            <DialogContent className="max-w-2xl">
+              <DialogHeader>
+                <DialogTitle>Chiqimni tahrirlash</DialogTitle>
+                <p className="text-sm text-gray-600">
+                  Ma'lumotlarni yangilang (Jami hisoblangan va Qoldiqlar avtomatik hisoblanadi)
+                </p>
+              </DialogHeader>
+              {editingItem && (
                 <div className="grid grid-cols-2 gap-4 py-4">
                   <div>
                     <Label htmlFor="edit-sana">Sana</Label>
@@ -885,17 +901,17 @@ export default function ChiqimModule() {
                     />
                   </div>
                 </div>
-                <div className="flex justify-end gap-2">
-                  <Button variant="outline" onClick={() => setEditingItem(null)}>
-                    Bekor qilish
-                  </Button>
-                  <Button onClick={() => updateEntry(editingItem)} className="bg-gray-900 hover:bg-gray-800 text-white">
-                    Saqlash
-                  </Button>
-                </div>
-              </DialogContent>
-            </Dialog>
-          )}
+              )}
+              <div className="flex justify-end gap-2">
+                <Button variant="outline" onClick={() => setEditingItem(null)}>
+                  Bekor qilish
+                </Button>
+                <Button onClick={() => updateEntry(editingItem!)} className="bg-gray-900 hover:bg-gray-800 text-white">
+                  Saqlash
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
         </>
       )}
     </div>
